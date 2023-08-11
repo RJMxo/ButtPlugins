@@ -47,7 +47,7 @@ public class TanPlugin extends Plugin {
     private int bankingState = 1;
     private int timeout = 0;
 
-    private int Upstairs = 2;
+    private int Upstairs = 0;
     @Inject
     private Client client;
 
@@ -64,6 +64,7 @@ public class TanPlugin extends Plugin {
         bankingState = 1;
         timeout = 0;
     }
+
     @Subscribe
     public void onGameTick(GameTick event) {
         //cballs slow as fuck!
@@ -121,9 +122,13 @@ public class TanPlugin extends Plugin {
             switch (bankingState)
             {
                 case 1:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","Depositing All Leathers","");
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting Deposit","");
+
+                    timeout += 1;
                     if (getInventoryItem(config.method().product)!=null)
                     {
+                        timeout += 1;
+                        client.addChatMessage(ChatMessageType.BROADCAST,"","Depositing Leather","");
                         setMenuEntry(event,depositProduct());
                         bankingState = 2;
                         return;
@@ -148,6 +153,8 @@ public class TanPlugin extends Plugin {
                     Upstairs = 1;
                     bankingState = 1;
                     return;
+
+                //this resets to intial state whenever the bank is opened
             }
 
         }
@@ -180,6 +187,7 @@ public class TanPlugin extends Plugin {
         {
             if (Upstairs == 0) {
                 setMenuEntry(event, bank());
+                timeout +=1;
             }
         }
 
@@ -223,15 +231,9 @@ public class TanPlugin extends Plugin {
         return createMenuEntry(1, MenuAction.CC_OP, -1, WidgetInfo.BANK_DEPOSIT_INVENTORY.getId(), false);
     }
 
-    private MenuEntry withdrawX() {
-        int bankIndex = getBankIndex(config.method().material2);
-        return createMenuEntry(5, MenuAction.CC_OP, bankIndex, WidgetInfo.BANK_ITEM_CONTAINER.getId(), false);
-    }
 
-
-    private MenuEntry withdrawAll(int chungus) {
+    private MenuEntry withdrawAll() {
         int bankIndex = getBankIndex(config.method().material);
-        int bankIndex = chungus;
         return createMenuEntry(7, MenuAction.CC_OP_LOW_PRIORITY, bankIndex, WidgetInfo.BANK_ITEM_CONTAINER.getId(), false);
     }
 

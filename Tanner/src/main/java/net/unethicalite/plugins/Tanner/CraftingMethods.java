@@ -15,7 +15,6 @@ public enum CraftingMethods {
 
 
     public int material;
-    public int material2 = -1; //always set this as the X quantity as material will just withdraw all.
     public int product;
     public int opcode;
 
@@ -25,10 +24,5 @@ public enum CraftingMethods {
         this.product = product;
         this.opcode = opcode;
     }
-    CraftingMethods(int material, int material2, int product, int opcode) {
-        this.material = material;
-        this.material2 = material2;
-        this.product = product;
-        this.opcode = opcode;
-    }
+
 }
