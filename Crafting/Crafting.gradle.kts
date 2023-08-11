@@ -1,7 +1,7 @@
-version = "0.0.1"
+version = "0.0.2"
 
-project.extra["PluginName"] = "Hider"
-project.extra["PluginDescription"] = "Hides Shits"
+project.extra["PluginName"] = "RJM-Crafting"
+project.extra["PluginDescription"] = "Bunch of crafting options"
 
 tasks {
     jar {

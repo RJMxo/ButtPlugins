@@ -123,12 +123,19 @@ public class TanPlugin extends Plugin {
             switch (bankingState)
             {
                 case 1:
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting Deposit","");
                     timeout += 1;
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","Depositing Leather","");
-                    setMenuEntry(event,depositProduct());
-                    timeout += 1;
+                    if (getInventoryItem(config.method().product)!=null)
+                    {
+                        timeout += 1;
+                        client.addChatMessage(ChatMessageType.BROADCAST,"","Depositing Leather","");
+                        setMenuEntry(event,depositProduct());
+                        bankingState = 2;
+                        return;
+                    }
                     bankingState = 2;
                     return;
+
                 case 2:
                     client.addChatMessage(ChatMessageType.BROADCAST,"","Withdrawing All Products","");
                     setMenuEntry(event,withdrawAll());
@@ -181,7 +188,6 @@ public class TanPlugin extends Plugin {
             if (Upstairs == 0) {
                 client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting to open Bank","");
                 setMenuEntry(event, bank());
-                bankingState = 1;
                 timeout +=1;
             }
         }

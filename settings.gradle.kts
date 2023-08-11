@@ -25,11 +25,9 @@
 
 rootProject.name = "ButtPlugin"
 
-include("Smelter")
-//include(":Alcher")
+include("Crafting")
 include("telealcher")
 include("Tanner")
-//include("Hider")
 
 
 //include("example-kotlin")

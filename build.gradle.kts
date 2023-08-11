@@ -23,7 +23,7 @@ apply<BootstrapPlugin>()
 allprojects {
     group = "net.unethicalite"
 
-    project.extra["PluginProvider"] = ""
+    project.extra["PluginProvider"] = "Lochi Likes Kids"
     project.extra["ProjectSupportUrl"] = ""
     project.extra["PluginLicense"] = "3-Clause BSD License"
 
