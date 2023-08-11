@@ -45,7 +45,7 @@ public class TanPlugin extends Plugin {
     private int bankingState = 1;
     private int timeout = 0;
 
-    private int Upstairs = 2;
+    private int Upstairs = 0;
     @Inject
     private Client client;
 
@@ -58,7 +58,7 @@ public class TanPlugin extends Plugin {
     }
 
     protected void startUp() throws Exception {
-        Upstairs = 2;
+        Upstairs = 0;
         bankingState = 1;
         timeout = 0;
     }
@@ -120,37 +120,23 @@ public class TanPlugin extends Plugin {
             switch (bankingState)
             {
                 case 1:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","black","");
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Deposit","");
+                    timeout += 1;
                     if (getInventoryItem(config.method().product)!=null)
                     {
+                        timeout += 1;
+                        client.addChatMessage(ChatMessageType.BROADCAST,"","Actual Deposit","");
                         setMenuEntry(event,depositProduct());
                         bankingState = 2;
                         return;
                     }
                     bankingState = 2;
                 case 2:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","withdrawx","");
-                    if (config.method().material2!=-1)
-                    {
-                        setMenuEntry(event,withdrawX());
-                        bankingState = 3;
-                        return;
-                    }
-                    bankingState = 3;
-                case 3:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","withdrawall","");
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Withdraw","");
                     setMenuEntry(event,withdrawAll());
-                    bankingState = 4;
+                    bankingState = 3;
                     return;
-                case 4:
-                    if (ClickUp()==null)
-                    {
-                        client.addChatMessage(ChatMessageType.BROADCAST,"","Furnace not found. Try Edge or Priff","");
-                        return;
-                    }
-                    bankingState = 5;
-                    return;
-                case 5:
+                case 3:
                     client.addChatMessage(ChatMessageType.BROADCAST,"","ClickUp bank logic","");
                     setMenuEntry(event,ClickUp());
                     Upstairs = 1;
@@ -182,6 +168,7 @@ public class TanPlugin extends Plugin {
                     client.addChatMessage(ChatMessageType.BROADCAST, "", "clickdown", "");
                     setMenuEntry(event, ClickDown());
                     Upstairs = 0;
+                    bankingState = 1;
                     return;
             }
         }
@@ -190,6 +177,7 @@ public class TanPlugin extends Plugin {
         {
             if (Upstairs == 0) {
                 setMenuEntry(event, bank());
+                timeout +=1;
             }
         }
 
@@ -231,11 +219,6 @@ public class TanPlugin extends Plugin {
 
     private MenuEntry depositAll() {
         return createMenuEntry(1, MenuAction.CC_OP, -1, WidgetInfo.BANK_DEPOSIT_INVENTORY.getId(), false);
-    }
-
-    private MenuEntry withdrawX() {
-        int bankIndex = getBankIndex(config.method().material2);
-        return createMenuEntry(5, MenuAction.CC_OP, bankIndex, WidgetInfo.BANK_ITEM_CONTAINER.getId(), false);
     }
 
 
