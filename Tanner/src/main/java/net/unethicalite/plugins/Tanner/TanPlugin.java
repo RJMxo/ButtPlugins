@@ -115,6 +115,7 @@ public class TanPlugin extends Plugin {
             //set bank tab to main tab
             if (client.getVarbitValue(Varbits.CURRENT_BANK_TAB)!=0)
             {
+                client.addChatMessage(ChatMessageType.BROADCAST,"","Selecting Main Tab","");
                 setMenuEntry(event,createMenuEntry(1, MenuAction.CC_OP, 10, WidgetInfo.BANK_TAB_CONTAINER.getId(), false));
                 return;
             }
@@ -182,6 +183,7 @@ public class TanPlugin extends Plugin {
         if (!bankOpen())
         {
             if (Upstairs == 0) {
+                client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting to open Bank","");
                 setMenuEntry(event, bank());
                 timeout +=1;
             }

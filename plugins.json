@@ -28,7 +28,7 @@
   "id": "craftingguildtanner-plugin",
   "releases": [{
     "date": "2023-08-11",
-    "sha512sum": "E78F98FA383BFFD4FC897F7C0BE932AA1A931F59BD33B691ECA5D17A473ABE8777D4D66C69436608ADF85A0F4E4571B17733BC10BB88D45679AC1393BC79C2E9",
+    "sha512sum": "93F34819CEE84B832F750AB50FC8B1D2F6833CBAB85D71D0A0E15A5B49DE6EA0E3E0F2AF79C41B99354EAE40936B58A799971DE091EF1C724F6F72DC56825607",
     "version": "0.0.2",
     "url": "https://github.com/RJMxo/blob/master/release/Tanner-0.0.2.jar?raw=true",
     "requires": "^1.0.0"
@@ -36,14 +36,14 @@
 }, {
   "projectUrl": "",
   "provider": "",
-  "name": "CoinMaker",
-  "description": "An automatic teleport alcher",
-  "id": "coinmaker-plugin",
+  "name": "Alcher",
+  "description": "An automatic alcher",
+  "id": "alcher-plugin",
   "releases": [{
     "date": "2023-08-11",
-    "sha512sum": "AB4DCAFD6C374E42454BEE07F2137F70F601C4CC2CBE101EA844C2A605C667A7A74AF9DF220E7AB98EACB4C3F28BB7159913E90F7CC0CF0089834381AB321F9A",
-    "version": "0.0.6",
-    "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.6.jar?raw=true",
+    "sha512sum": "C87256D1BFDE894E6FFC9596E8C0CE1E4D3442BAF10381A374C6C82F2ABC149FF28AF2CC6A63A81260FEEB7D8A95A449F92F60CEC7DEC0B8D4FD2211CC119F0A",
+    "version": "0.0.1",
+    "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.1.jar?raw=true",
     "requires": "^1.0.0"
   }]
 }]
