@@ -23,6 +23,19 @@
 }, {
   "projectUrl": "",
   "provider": "",
+  "name": "Crafting Guild Tanner",
+  "description": "Tans yo shit",
+  "id": "craftingguildtanner-plugin",
+  "releases": [{
+    "date": "2023-08-11",
+    "sha512sum": "FF0A1518F70131E12020BF2A290C9DE23E21BDA7F090FAE4981AF0EE8CE44C824930B05FBF22BDA9BAFDEA710DA50D3AA6CCE1A8B85396F046F351DE4619825E",
+    "version": "0.0.2",
+    "url": "https://github.com/RJMxo/blob/master/release/Tanner-0.0.2.jar?raw=true",
+    "requires": "^1.0.0"
+  }]
+}, {
+  "projectUrl": "",
+  "provider": "",
   "name": "CoinMaker",
   "description": "An automatic teleport alcher",
   "id": "coinmaker-plugin",

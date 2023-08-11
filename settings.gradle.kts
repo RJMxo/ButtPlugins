@@ -28,7 +28,7 @@ rootProject.name = "ButtPlugin"
 include("Smelter")
 //include(":Alcher")
 include("telealcher")
-//include("Tanner")
+include("Tanner")
 //include("Hider")
 
 
