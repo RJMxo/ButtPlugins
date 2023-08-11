@@ -23,23 +23,14 @@
 }, {
   "projectUrl": "",
   "provider": "",
-  "name": "Teleport Alcher",
+  "name": "CoinMaker",
   "description": "An automatic teleport alcher",
-  "id": "teleportalcher-plugin",
-  "releases": [
-    {
-      "date": "2023-08-11",
-      "sha512sum": "D04F71E009A8E5314893EF3C81ABC84FD2FFC12F3AD44AAC7F502DAEA28D90A6FAC850161A53ACB47AF52D7583C677856238DF71BB30262FA21F0B0E19508A80",
-      "version": "0.0.4",
-      "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.4.jar?raw=true",
-      "requires": "^1.0.0"
-    },
-    {
-      "date": "2023-08-11",
-      "sha512sum": "8F9D5ABF6FCEDFC6A5768716F918328BE609D14741AB4AD3486BC1C67752409BC121E0F22EEAF347D8EF577D4D603D9CD57E7B42A37FB2DC97F36772D2A7A2FC",
-      "version": "0.0.5",
-      "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.5.jar?raw=true",
-      "requires": "^1.0.0"
-    }
-  ]
+  "id": "coinmaker-plugin",
+  "releases": [{
+    "date": "2023-08-11",
+    "sha512sum": "D2B4527EBED5FEF2B5230F94C97C55E48E5ABAADFC863794E1D6FD93883B991144CB69B77541D12EAE77B9772AF69915091C40871B32AB0CAC881D68D34FB6BC",
+    "version": "0.0.6",
+    "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.6.jar?raw=true",
+    "requires": "^1.0.0"
+  }]
 }]
