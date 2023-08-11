@@ -105,15 +105,45 @@ interface TeleAlcherConfig : Config {
 
     @ConfigItem(
         keyName = "alchId",
-        name = "Alch ID",
+        name = "Alch ID 1",
         description = "Alch item id",
         position = 15
     )
     @JvmDefault
-    fun alchId(): Int {
+    fun alchId1(): Int {
         return 995
     }
 
+    @ConfigItem(
+        keyName = "alchId",
+        name = "Alch ID 2",
+        description = "Alch item id",
+        position = 16
+    )
+    @JvmDefault
+    fun alchId2(): Int {
+        return 995
+    }
+    @ConfigItem(
+        keyName = "alchId",
+        name = "Alch ID 3",
+        description = "Alch item id",
+        position = 17
+    )
+    @JvmDefault
+    fun alchId3(): Int {
+        return 995
+    }
+    @ConfigItem(
+        keyName = "alchId",
+        name = "Alch ID 4",
+        description = "Alch item id",
+        position = 18
+    )
+    @JvmDefault
+    fun alchId4(): Int {
+        return 995
+    }
     @ConfigItem(
         keyName = "startHelper",
         name = "Start / Stop",

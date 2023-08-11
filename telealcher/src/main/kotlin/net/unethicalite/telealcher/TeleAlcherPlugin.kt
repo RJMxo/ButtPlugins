@@ -99,12 +99,24 @@ class TeleAlcherPlugin : LoopedPlugin() {
                     return -1
                 }
                 States.ALCH -> {
-                    val alchItem: Item? = Inventory.getFirst { it.id == config.alchId() }
+                    val alchItem: Item? = Inventory.getFirst { it.id == config.alchId1() }
                     if (alchItem == null)
                     {
-                        MessageUtils.addMessage("Out of alch items")
-                        reset()
-                        return -1
+                        val alchItem: Item? = Inventory.getFirst { it.id == config.alchId2() }
+                        if (alchItem == null)
+                        {
+                            val alchItem: Item? = Inventory.getFirst { it.id == config.alchId3() }
+                            if (alchItem == null)
+                            {
+                                val alchItem: Item? = Inventory.getFirst { it.id == config.alchId4() }
+                                if (alchItem == null)
+                                {
+                                    net.unethicalite.api.utils.MessageUtils.addMessage("Out of alch items")
+                                    reset()
+                                    return -1
+                                }
+                            }
+                        }
                     }
                     if (Skills.getLevel(Skill.MAGIC) < 55)
                     {
