@@ -25,6 +25,8 @@ import net.unethicalite.api.widgets.Dialog;
 import net.runelite.api.DialogOption;
 import net.runelite.api.NPC;
 import net.unethicalite.api.entities.NPCs;
+import net.unethicalite.api.items.Bank;
+import net.unethicalite.api.items.Inventory;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -58,11 +60,10 @@ public class TanPlugin extends Plugin {
     }
 
     protected void startUp() throws Exception {
-        Upstairs = 2;
+        Upstairs = 0;
         bankingState = 1;
         timeout = 0;
     }
-
     @Subscribe
     public void onGameTick(GameTick event) {
         //cballs slow as fuck!
@@ -120,7 +121,7 @@ public class TanPlugin extends Plugin {
             switch (bankingState)
             {
                 case 1:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","black","");
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Depositing All Leathers","");
                     if (getInventoryItem(config.method().product)!=null)
                     {
                         setMenuEntry(event,depositProduct());
@@ -129,35 +130,24 @@ public class TanPlugin extends Plugin {
                     }
                     bankingState = 2;
                 case 2:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","withdrawx","");
-                    if (config.method().material2!=-1)
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Withdrawing All Products","");
+                    setMenuEntry(event,withdrawAll());
+                    bankingState = 3;
+                    return;
+                case 3:
+                    if (ClickUp()==null)
                     {
-                        setMenuEntry(event,withdrawX());
-                        bankingState = 3;
+                        client.addChatMessage(ChatMessageType.BROADCAST,"","Cannot Find Stairs","");
                         return;
                     }
-                    bankingState = 3;
-                case 3:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","withdrawall","");
-                    setMenuEntry(event,withdrawAll());
                     bankingState = 4;
                     return;
                 case 4:
-                    if (ClickUp()==null)
-                    {
-                        client.addChatMessage(ChatMessageType.BROADCAST,"","Furnace not found. Try Edge or Priff","");
-                        return;
-                    }
-                    bankingState = 5;
-                    return;
-                case 5:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","ClickUp bank logic","");
+                    client.addChatMessage(ChatMessageType.BROADCAST,"","Going Up Stairs","");
                     setMenuEntry(event,ClickUp());
                     Upstairs = 1;
                     bankingState = 1;
                     return;
-
-                //this resets to intial state whenever the bank is opened
             }
 
         }
@@ -165,21 +155,21 @@ public class TanPlugin extends Plugin {
         if (Upstairs > 0) {
             switch (Upstairs) {
                 case 1:
-                    client.addChatMessage(ChatMessageType.BROADCAST, "", "clicktrader", "");
+                    client.addChatMessage(ChatMessageType.BROADCAST, "", "Clicking on Tanner", "");
                     setMenuEntry(event, ClickTrader());
                     NPCs.getNearest("Tanner").interact("Trade");
                     timeout += 2;
                     Upstairs = 2;
                     return;
                 case 2:
-                    client.addChatMessage(ChatMessageType.BROADCAST, "", "widgetHandler", "");
+                    client.addChatMessage(ChatMessageType.BROADCAST, "", "Selecting 'Tan All'", "");
                     setMenuEntry(event, ClickTrader());
                     net.unethicalite.api.packets.WidgetPackets.queueWidgetTypePacket(config.method().opcode);
                     timeout += 1;
                     Upstairs = 3;
                     return;
                 case 3:
-                    client.addChatMessage(ChatMessageType.BROADCAST, "", "clickdown", "");
+                    client.addChatMessage(ChatMessageType.BROADCAST, "", "Going Down Stairs", "");
                     setMenuEntry(event, ClickDown());
                     Upstairs = 0;
                     return;
@@ -239,8 +229,9 @@ public class TanPlugin extends Plugin {
     }
 
 
-    private MenuEntry withdrawAll() {
+    private MenuEntry withdrawAll(int chungus) {
         int bankIndex = getBankIndex(config.method().material);
+        int bankIndex = chungus;
         return createMenuEntry(7, MenuAction.CC_OP_LOW_PRIORITY, bankIndex, WidgetInfo.BANK_ITEM_CONTAINER.getId(), false);
     }
 

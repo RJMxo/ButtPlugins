@@ -4,24 +4,42 @@
   "name": "Smelter",
   "description": "Shmelts",
   "id": "smelter-plugin",
-  "releases": [{
-    "date": "2023-08-08",
-    "sha512sum": "66CC396D9760D78963C3F9F503B991C04A21049EDEBCE724408D5EC03AB679F2FFF61EBDFED2EB6752EA9E10BA7B136A8A7E431FAEBF234EA36BB55E8B5E7A40",
-    "version": "0.0.8",
-    "url": "/blob/master/release/Smelter-0.0.8.jar?raw=true",
-    "requires": "^1.0.0"
-  }]
+  "releases": [
+    {
+      "date": "2023-08-08",
+      "sha512sum": "66CC396D9760D78963C3F9F503B991C04A21049EDEBCE724408D5EC03AB679F2FFF61EBDFED2EB6752EA9E10BA7B136A8A7E431FAEBF234EA36BB55E8B5E7A40",
+      "version": "0.0.8",
+      "url": "/blob/master/release/Smelter-0.0.8.jar?raw=true",
+      "requires": "^1.0.0"
+    },
+    {
+      "date": "2023-08-11",
+      "sha512sum": "898F818032692A2BA43E289AF3E3AC626187BCFF7A07303DE06CD01273D1BD411AF81AD349F9CDD2A62730EF7127AE59DF4E2018F43548CF13C01DB61CE6284D",
+      "version": "0.0.1",
+      "url": "https://github.com/RJMxo/blob/master/release/Smelter-0.0.1.jar?raw=true",
+      "requires": "^1.0.0"
+    }
+  ]
 }, {
   "projectUrl": "",
   "provider": "",
-  "name": "Tanner_69_420xx",
-  "description": "Tans yo shit",
-  "id": "tannerxx-plugin",
-  "releases": [{
-    "date": "2023-08-08",
-    "sha512sum": "FEB2633B92DC87413B23F82422EAB32B1197EC906BAA9FB1D03034A2F353B1ADDEFB0F4C6C9CD8F6D684C4728FC6DEB7B12ADEF556871456009DFDB5373EE6D1",
-    "version": "0.0.1",
-    "url": "/blob/master/release/Tanner-0.0.1.jar?raw=true",
-    "requires": "^1.0.0"
-  }]
+  "name": "Teleport Alcher",
+  "description": "An automatic teleport alcher",
+  "id": "teleportalcher-plugin",
+  "releases": [
+    {
+      "date": "2023-08-11",
+      "sha512sum": "D04F71E009A8E5314893EF3C81ABC84FD2FFC12F3AD44AAC7F502DAEA28D90A6FAC850161A53ACB47AF52D7583C677856238DF71BB30262FA21F0B0E19508A80",
+      "version": "0.0.4",
+      "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.4.jar?raw=true",
+      "requires": "^1.0.0"
+    },
+    {
+      "date": "2023-08-11",
+      "sha512sum": "8F9D5ABF6FCEDFC6A5768716F918328BE609D14741AB4AD3486BC1C67752409BC121E0F22EEAF347D8EF577D4D603D9CD57E7B42A37FB2DC97F36772D2A7A2FC",
+      "version": "0.0.5",
+      "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.5.jar?raw=true",
+      "requires": "^1.0.0"
+    }
+  ]
 }]

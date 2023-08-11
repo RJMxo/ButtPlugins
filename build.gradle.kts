@@ -11,6 +11,7 @@ plugins {
     `java-library`
     checkstyle
     kotlin("jvm") version "1.6.21"
+    //id("org.jetbrains.kotlin.jvm") version "1.6.10"
 }
 
 project.extra["GithubUrl"] = "https://github.com/RJMxo"
@@ -29,7 +30,7 @@ allprojects {
     apply<JavaPlugin>()
     apply(plugin = "java-library")
     apply(plugin = "kotlin")
-    //apply(plugin = "checkstyle")
+    apply(plugin = "org.jetbrains.kotlin.jvm")
 
     repositories {
         mavenCentral()
@@ -70,6 +71,7 @@ allprojects {
 
         compileKotlin {
             kotlinOptions.jvmTarget = "11"
+            kotlinOptions.freeCompilerArgs = listOf("-Xjvm-default=enable")
         }
     }
 }
