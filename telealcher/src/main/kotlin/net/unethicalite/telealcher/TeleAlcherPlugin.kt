@@ -130,7 +130,7 @@ class TeleAlcherPlugin : LoopedPlugin() {
                     return 300
                 }
                 States.UNKNOWN -> {
-                    MessageUtils.addMessage("Reached unknown")
+                    //MessageUtils.addMessage("Reached unknown")
                 }
             }
             return sleepDelay().toInt()

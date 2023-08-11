@@ -123,7 +123,6 @@ public class TanPlugin extends Plugin {
             {
                 case 1:
                     client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting Deposit","");
-
                     timeout += 1;
                     if (getInventoryItem(config.method().product)!=null)
                     {
@@ -133,7 +132,6 @@ public class TanPlugin extends Plugin {
                         bankingState = 2;
                         return;
                     }
-                    bankingState = 2;
                 case 2:
                     client.addChatMessage(ChatMessageType.BROADCAST,"","Withdrawing All Products","");
                     setMenuEntry(event,withdrawAll());
@@ -153,8 +151,6 @@ public class TanPlugin extends Plugin {
                     Upstairs = 1;
                     bankingState = 1;
                     return;
-
-                //this resets to intial state whenever the bank is opened
             }
 
         }
