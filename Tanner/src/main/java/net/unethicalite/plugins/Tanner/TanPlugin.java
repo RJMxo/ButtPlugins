@@ -124,16 +124,11 @@ public class TanPlugin extends Plugin {
             {
                 case 1:
                     client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting Deposit","");
-                    timeout += 1;
-                    if (getInventoryItem(config.method().product)!=null)
-                    {
-                        timeout += 1;
-                        client.addChatMessage(ChatMessageType.BROADCAST,"","Depositing Leather","");
-                        setMenuEntry(event,depositProduct());
+                    if (getInventoryItem(config.method().product) == null){
                         bankingState = 2;
                         return;
                     }
-                    bankingState = 2;
+                    setMenuEntry(event, depositProduct());
                     return;
 
                 case 2:

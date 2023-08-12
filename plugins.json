@@ -1,25 +1,16 @@
 [{
   "projectUrl": "",
-  "provider": "",
-  "name": "Smelter",
-  "description": "Shmelts",
-  "id": "smelter-plugin",
-  "releases": [
-    {
-      "date": "2023-08-08",
-      "sha512sum": "66CC396D9760D78963C3F9F503B991C04A21049EDEBCE724408D5EC03AB679F2FFF61EBDFED2EB6752EA9E10BA7B136A8A7E431FAEBF234EA36BB55E8B5E7A40",
-      "version": "0.0.8",
-      "url": "/blob/master/release/Smelter-0.0.8.jar?raw=true",
-      "requires": "^1.0.0"
-    },
-    {
-      "date": "2023-08-11",
-      "sha512sum": "898F818032692A2BA43E289AF3E3AC626187BCFF7A07303DE06CD01273D1BD411AF81AD349F9CDD2A62730EF7127AE59DF4E2018F43548CF13C01DB61CE6284D",
-      "version": "0.0.1",
-      "url": "https://github.com/RJMxo/blob/master/release/Smelter-0.0.1.jar?raw=true",
-      "requires": "^1.0.0"
-    }
-  ]
+  "provider": "Lochi Likes Kids",
+  "name": "RJM-Crafting",
+  "description": "Bunch of crafting options",
+  "id": "rjmcrafting-plugin",
+  "releases": [{
+    "date": "2023-08-12",
+    "sha512sum": "D245CF8FB21A206CCC526D71443A80DC3ECE4061FCB07596B74B7AFC4476CE3C75148FEEE156FBE33FA211EF4BE9114785FAEA9CB008FA7D183DB9F422356490",
+    "version": "0.0.2",
+    "url": "https://github.com/RJMxo/blob/master/release/Crafting-0.0.2.jar?raw=true",
+    "requires": "^1.0.0"
+  }]
 }, {
   "projectUrl": "",
   "provider": "",
@@ -28,7 +19,7 @@
   "id": "craftingguildtanner-plugin",
   "releases": [{
     "date": "2023-08-11",
-    "sha512sum": "8C8AC814BB138F6636A6B5903EB000745018B97797C229D708F82EB18BEB196E39DD6990C7A5034995556AEB3A9568D9683392012B2E946D40FACB0D3C30CE0C",
+    "sha512sum": "5E19D76173DFB7532093EEB03DC10C810FC5BCF50050BE37E9D887920CCB19E17555BBAEFED58AA0EECB3913A6905E937E481522CC801CA961950566F3D3E702",
     "version": "0.0.2",
     "url": "https://github.com/RJMxo/blob/master/release/Tanner-0.0.2.jar?raw=true",
     "requires": "^1.0.0"
@@ -41,7 +32,7 @@
   "id": "alcher-plugin",
   "releases": [{
     "date": "2023-08-11",
-    "sha512sum": "201FF6A1B16EC19458A6451B396A4941CD280B34C2FD8468FBE666D8DAB5DEA2C6F13892C624287D5F2439C26702C1F801014E400AEC8BAF09A3F1506B0E2AD0",
+    "sha512sum": "5DDA15DDAC6B8DD7A740DC7F9F8AE9BD4E5FEEEA065258832ADCE96757B1FB4C14EABC257A9173C93D75D4D432E2AF22243EFBD732E0E734E977080DF4199009",
     "version": "0.0.1",
     "url": "https://github.com/RJMxo/blob/master/release/telealcher-0.0.1.jar?raw=true",
     "requires": "^1.0.0"

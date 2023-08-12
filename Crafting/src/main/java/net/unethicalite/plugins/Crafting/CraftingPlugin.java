@@ -21,38 +21,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 import org.pf4j.Extension;
 import net.runelite.api.NPC;
 import java.util.Arrays;
-import com.google.inject.Inject;
-import com.google.inject.Provides;
-import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.*;
-import net.runelite.api.Point;
-import net.runelite.api.events.ClientTick;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.InteractingChanged;
-import net.runelite.api.events.MenuOptionClicked;
-import net.runelite.api.queries.BankItemQuery;
-import net.runelite.api.queries.GameObjectQuery;
-import net.runelite.api.queries.GroundObjectQuery;
-import net.runelite.api.queries.NPCQuery;
-import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
-import net.runelite.api.widgets.WidgetItem;
-import net.runelite.client.config.ConfigManager;
-import net.runelite.client.eventbus.Subscribe;
-import net.runelite.client.plugins.Plugin;
-import net.runelite.client.plugins.PluginDescriptor;
-import org.pf4j.Extension;
-import net.unethicalite.api.widgets.Dialog;
-import net.runelite.api.DialogOption;
-import net.runelite.api.NPC;
-import net.unethicalite.api.entities.NPCs;
-import net.unethicalite.api.items.Bank;
-import net.unethicalite.api.items.Inventory;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 @Extension
 @PluginDescriptor(
         name = "RJM-Crafting-OC",
@@ -118,6 +87,7 @@ public class CraftingPlugin extends Plugin {
 
         if (widgetHandler()!=null)
         {
+            client.addChatMessage(ChatMessageType.BROADCAST,"","Widget time","");
             setMenuEntry(event,widgetHandler());
             return;
         }
@@ -136,14 +106,12 @@ public class CraftingPlugin extends Plugin {
 
             switch (bankingState) {
                 case 1:
-
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","Attempting Deposit","");
-                    if (getInventoryItem(config.method().product) != null) {
-                        setMenuEntry(event, depositProduct());
+                    if (getInventoryItem(config.method().product) == null){
                         bankingState = 2;
                         return;
                     }
-                    bankingState = 2;
+                    setMenuEntry(event, depositProduct());
+                    return;
                 case 2:
                     client.addChatMessage(ChatMessageType.BROADCAST,"","Withdrawing X Products","");
                     if (config.method().material2 != -1) {
@@ -168,15 +136,14 @@ public class CraftingPlugin extends Plugin {
                     }
                     if (config.mode() == CraftingTypes.Mode.TRADIE) {
                         client.addChatMessage(ChatMessageType.BROADCAST, "", "Using Tool", "");
-                        setMenuEntry(event, useToolOnProduct());
+                        setMenuEntry(event, usePipeOnGlass());
+                        bankingState = 5;
                     }
                     return;
-                //this resets to intial state whenever the bank is opened
+                case 5:
             }
         }
-
-        if (!bankOpen()) {
-            client.addChatMessage(ChatMessageType.BROADCAST,"","Commision","");
+        if (!bankOpen() && getInventoryItem(config.method().material) == null) {
             setMenuEntry(event, bank());
         }
     }
@@ -212,11 +179,6 @@ public class CraftingPlugin extends Plugin {
         return createMenuEntry(banker.getIndex(), MenuAction.NPC_THIRD_OPTION, 0, 0, false);
     }
 
-    /*private MenuEntry bank() {
-        GameObject bank = getGameObject(10355);
-        return createMenuEntry(10355, MenuAction.GAME_OBJECT_SECOND_OPTION, getLocation(bank).getX(), getLocation(bank).getY(), false);
-    }*/
-
     private MenuEntry depositProduct() {
         Widget item = getInventoryItem(config.method().product);
         return createMenuEntry(8, MenuAction.CC_OP_LOW_PRIORITY, item.getIndex(), WidgetInfo.BANK_INVENTORY_ITEMS_CONTAINER.getId(), false);
@@ -242,23 +204,23 @@ public class CraftingPlugin extends Plugin {
         return createMenuEntry(furnace.getId(), MenuAction.GAME_OBJECT_SECOND_OPTION, getLocation(furnace).getX(), getLocation(furnace).getY(), false);
     }
 
+    private MenuEntry usePipeOnGlass(){
+        Widget moltenGlass = getInventoryItem(ItemID.NEEDLE);
+        Widget pipe = getInventoryItem(ItemID.RED_DRAGON_LEATHER);
+        if (pipe == null || moltenGlass == null) return null;
+        setSelectedInventoryItem(pipe);
+        return createMenuEntry(0, MenuAction.WIDGET_TARGET_ON_WIDGET, moltenGlass.getIndex(), 9764864, true);
+    }
     private void setSelectedInventoryItem(Widget item) {
         client.setSelectedSpellWidget(WidgetInfo.INVENTORY.getId());
         client.setSelectedSpellChildIndex(item.getIndex());
         client.setSelectedSpellItemId(item.getItemId());
     }
-    private MenuEntry useToolOnProduct() {
-        Widget leather = getInventoryItem(config.method().material);
-        Widget tool = getInventoryItem(config.method().tool);
-        if (tool == null || leather == null) return null;
-        setSelectedInventoryItem(tool);
-        return createMenuEntry(0, MenuAction.WIDGET_TARGET_ON_WIDGET, leather.getIndex(), config.method().opcode, true);
-    }
-
     private MenuEntry widgetHandler() {
         if (client.getWidget(270, 1) != null
                 || client.getWidget(446, 1) != null
-                || client.getWidget(6, 1) != null) {
+                || client.getWidget(6, 1) != null
+                || client.getWidget(270, 14) != null) {
             return createMenuEntry(1, MenuAction.CC_OP, -1, config.method().opcode, false);
         }
         return null;
