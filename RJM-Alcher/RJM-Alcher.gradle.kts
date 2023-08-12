@@ -1,5 +1,5 @@
 version = "0.0.1"
-project.extra["PluginName"] = "Alcher" // This is the name that is used in the external plugin manager panel
+project.extra["PluginName"] = "RJM-Alcher" // This is the name that is used in the external plugin manager panel
 project.extra["PluginDescription"] = "An automatic alcher" // This is the description that is used in the external plugin manager panel
 
 plugins{

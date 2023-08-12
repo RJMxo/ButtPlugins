@@ -1,4 +1,4 @@
-package net.unethicalite.telealcher.util
+package net.unethicalite.alcher.util
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

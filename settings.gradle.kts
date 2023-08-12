@@ -23,11 +23,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "ButtPlugin"
+rootProject.name = "RJM-ButtPlugins"
 
-include("Crafting")
-include("telealcher")
-include("Tanner")
+include("RJM-Crafting")
+include("RJM-Alcher")
+include("RJM-Tanner")
 
 
 //include("example-kotlin")

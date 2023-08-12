@@ -1,10 +1,9 @@
-package net.unethicalite.telealcher
-
+package net.unethicalite.alcher
 import net.runelite.client.config.*
-import net.unethicalite.telealcher.util.Teleport
+import net.unethicalite.alcher.util.Teleport
 
 @ConfigGroup("TeleAlcherConfig")
-interface TeleAlcherConfig : Config {
+interface AlcherConfig : Config {
 
     companion object {
         @ConfigSection(

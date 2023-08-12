@@ -1,10 +1,6 @@
-package net.unethicalite.telealcher.util
+package net.unethicalite.alcher.util
 
 import lombok.Getter
-import net.runelite.api.Skill
-import net.unethicalite.api.game.Skills
-import net.unethicalite.api.magic.Magic
-import net.unethicalite.api.magic.Spell
 import net.unethicalite.api.magic.SpellBook
 
 @Getter

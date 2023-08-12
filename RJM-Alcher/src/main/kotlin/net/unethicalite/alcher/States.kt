@@ -1,4 +1,4 @@
-package net.unethicalite.telealcher
+package net.unethicalite.alcher
 
 enum class States {
     TELE,

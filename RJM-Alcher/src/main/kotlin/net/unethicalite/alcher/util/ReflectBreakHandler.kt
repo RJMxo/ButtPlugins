@@ -1,4 +1,4 @@
-package net.unethicalite.telealcher.util
+package net.unethicalite.alcher.util
 
 import lombok.extern.slf4j.Slf4j
 import net.runelite.client.plugins.Plugin

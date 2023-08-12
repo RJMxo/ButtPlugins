@@ -1,4 +1,4 @@
-package net.unethicalite.telealcher
+package net.unethicalite.alcher
 
 import com.google.inject.Provides
 import net.runelite.api.*
@@ -6,9 +6,7 @@ import net.runelite.api.events.ConfigButtonClicked
 import net.runelite.client.config.ConfigManager
 import net.runelite.client.eventbus.Subscribe
 import net.runelite.client.plugins.PluginDescriptor
-import net.unethicalite.api.commons.Time
 import net.unethicalite.api.entities.Players
-import net.unethicalite.api.entities.TileObjects
 import net.unethicalite.api.game.Skills
 import net.unethicalite.api.items.Inventory
 import net.unethicalite.api.magic.Magic
@@ -16,10 +14,10 @@ import net.unethicalite.api.magic.SpellBook
 import net.unethicalite.api.plugins.LoopedPlugin
 import net.unethicalite.api.utils.MessageUtils
 import net.unethicalite.client.Static
-import net.unethicalite.telealcher.util.Calculation
-import net.unethicalite.telealcher.util.Functions
-import net.unethicalite.telealcher.util.Log
-import net.unethicalite.telealcher.util.ReflectBreakHandler
+import net.unethicalite.alcher.util.Calculation
+import net.unethicalite.alcher.util.Functions
+import net.unethicalite.alcher.util.Log
+import net.unethicalite.alcher.util.ReflectBreakHandler
 import org.pf4j.Extension
 import java.time.Duration
 import java.time.Instant
@@ -31,10 +29,10 @@ import javax.inject.Inject
     description = "Automatic tele alcher",
     tags = ["tele", "alch"]
 )
-class TeleAlcherPlugin : LoopedPlugin() {
+class AlcherPlugin : LoopedPlugin() {
 
     @Inject
-    lateinit var config: TeleAlcherConfig
+    lateinit var config: AlcherConfig
 
     @Inject
     lateinit var functions: Functions
@@ -56,8 +54,8 @@ class TeleAlcherPlugin : LoopedPlugin() {
     companion object : Log()
 
     @Provides
-    fun provideConfig(configManager: ConfigManager): TeleAlcherConfig {
-        return configManager.getConfig(TeleAlcherConfig::class.java)
+    fun provideConfig(configManager: ConfigManager): AlcherConfig {
+        return configManager.getConfig(AlcherConfig::class.java)
     }
 
 
@@ -84,7 +82,7 @@ class TeleAlcherPlugin : LoopedPlugin() {
             when(getState()){
                 States.HANDLE_BREAK -> {
                     MessageUtils.addMessage("Attempting to break")
-                    chinBreakHandler.startBreak(this@TeleAlcherPlugin)
+                    chinBreakHandler.startBreak(this@AlcherPlugin)
                 }
                 States.TELE -> {
                     if (!config.teleport().teleport.haveRunesAvailable())

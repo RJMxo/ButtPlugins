@@ -1,18 +1,17 @@
-package net.unethicalite.telealcher.util
+package net.unethicalite.alcher.util
 
 import net.runelite.api.Client
 import net.unethicalite.api.entities.Players
 import net.unethicalite.api.game.Game
-import net.unethicalite.api.items.Inventory
-import net.unethicalite.telealcher.TeleAlcherPlugin
-import net.unethicalite.telealcher.States
+import net.unethicalite.alcher.AlcherPlugin
+import net.unethicalite.alcher.States
 import javax.inject.Inject
 
 class Functions {
     @Inject
     lateinit var client: Client
 
-    fun TeleAlcherPlugin.sleepDelay(): Long {
+    fun AlcherPlugin.sleepDelay(): Long {
         sleepLength = calculation.randomDelay(
             config.sleepWeightedDistribution(),
             config.sleepMin(),
@@ -23,7 +22,7 @@ class Functions {
         return sleepLength
     }
 
-    fun TeleAlcherPlugin.getState(): States {
+    fun AlcherPlugin.getState(): States {
         if (!Game.isLoggedIn()) return States.UNKNOWN
         if (chinBreakHandler.shouldBreak(this))
             return States.HANDLE_BREAK
