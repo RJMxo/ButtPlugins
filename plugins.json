@@ -6,7 +6,7 @@
   "id": "rjmalcher-plugin",
   "releases": [{
     "date": "2023-08-12",
-    "sha512sum": "89749112C6BD24BAE4F20F4B2A5CCF7922C55C3EA7319ADF2EDE3B78023630FEE1B0CBA4CFD43E8D075DDF3E63E0711E8D043924096BDE25CF993E75A8ABF76C",
+    "sha512sum": "7DD371A9622D691AB28C3AE409A0F124ADB474369C31A86D33F0805CBB8C2B192EEA247EC23942180161729242D42280871B331866244C5876577E5A157A5ECC",
     "version": "0.0.1",
     "url": "https://github.com/RJMxo/blob/master/release/RJM-Alcher-0.0.1.jar?raw=true",
     "requires": "^1.0.0"
@@ -22,6 +22,19 @@
     "sha512sum": "DC521FC9D736585DE4D3B70CDA2040FE15B75E27CBF19607350750EFAC08C272650B26D88AD7438F1674B409E581F3FDC0FB8F6941976507E443BD06FD22E38E",
     "version": "0.0.2",
     "url": "https://github.com/RJMxo/blob/master/release/Crafting-0.0.2.jar?raw=true",
+    "requires": "^1.0.0"
+  }]
+}, {
+  "projectUrl": "",
+  "provider": "Lochi Likes Kids",
+  "name": "RJM-Mining",
+  "description": "Mines and Banks",
+  "id": "rjmmining-plugin",
+  "releases": [{
+    "date": "2023-08-12",
+    "sha512sum": "752D594CDB76800298BB0DF7A1748C28BBFBC8F410732CF4636FCF8F2B306FBCFB44D36EB956064A5EC77B43CCCE5AAF8788195206227E93C2180DAE891299A9",
+    "version": "0.0.2",
+    "url": "https://github.com/RJMxo/blob/master/release/RJM-Mining-0.0.2.jar?raw=true",
     "requires": "^1.0.0"
   }]
 }, {

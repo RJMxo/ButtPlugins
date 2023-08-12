@@ -28,6 +28,7 @@ rootProject.name = "RJM-ButtPlugins"
 include("RJM-Crafting")
 include("RJM-Alcher")
 include("RJM-Tanner")
+include("RJM-Mining")
 
 
 //include("example-kotlin")

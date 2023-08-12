@@ -25,7 +25,7 @@ import javax.inject.Inject
 
 @Extension
 @PluginDescriptor(
-    name = "RJM-TeleAlch",
+    name = "RJM-Alcher",
     description = "Automatic tele alcher",
     tags = ["tele", "alch"]
 )
