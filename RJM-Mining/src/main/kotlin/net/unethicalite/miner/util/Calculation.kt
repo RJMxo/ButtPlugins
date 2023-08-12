@@ -1,4 +1,4 @@
-package net.unethicalite.plugins.Mining.util
+package net.unethicalite.miner.util
 
 import java.util.*
 import java.util.concurrent.ThreadLocalRandom

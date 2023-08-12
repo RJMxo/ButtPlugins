@@ -19,7 +19,7 @@
   "id": "rjmcrafting-plugin",
   "releases": [{
     "date": "2023-08-12",
-    "sha512sum": "DC521FC9D736585DE4D3B70CDA2040FE15B75E27CBF19607350750EFAC08C272650B26D88AD7438F1674B409E581F3FDC0FB8F6941976507E443BD06FD22E38E",
+    "sha512sum": "18730312CD99978957B6645224868C39128EF82F459F69054B902343825135DFB7CC0A63732007CC4ACDF05AEC939E41D560D70C83AED90A0028F63E322BC548",
     "version": "0.0.2",
     "url": "https://github.com/RJMxo/blob/master/release/Crafting-0.0.2.jar?raw=true",
     "requires": "^1.0.0"
@@ -27,14 +27,14 @@
 }, {
   "projectUrl": "",
   "provider": "Lochi Likes Kids",
-  "name": "RJM-Mining",
-  "description": "Mines and Banks",
-  "id": "rjmmining-plugin",
+  "name": "RJM-Miner",
+  "description": "An automatic Miner",
+  "id": "rjmminer-plugin",
   "releases": [{
     "date": "2023-08-12",
-    "sha512sum": "752D594CDB76800298BB0DF7A1748C28BBFBC8F410732CF4636FCF8F2B306FBCFB44D36EB956064A5EC77B43CCCE5AAF8788195206227E93C2180DAE891299A9",
-    "version": "0.0.2",
-    "url": "https://github.com/RJMxo/blob/master/release/RJM-Mining-0.0.2.jar?raw=true",
+    "sha512sum": "1F75C53A9341CEEF1DA37A24423D119A5CCD24EDE16E83FCE7EC9EF270A1E0FA56447510819EB3FA83AA7A3B67B6EF8E03876EBBB49679E9D4C9160FC39855F1",
+    "version": "0.0.3",
+    "url": "https://github.com/RJMxo/blob/master/release/RJM-Mining-0.0.3.jar?raw=true",
     "requires": "^1.0.0"
   }]
 }, {

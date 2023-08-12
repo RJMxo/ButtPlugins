@@ -30,7 +30,6 @@ include("RJM-Alcher")
 include("RJM-Tanner")
 include("RJM-Mining")
 
-
 //include("example-kotlin")
 
 for (project in rootProject.children) {

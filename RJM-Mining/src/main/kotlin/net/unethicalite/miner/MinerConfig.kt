@@ -1,10 +1,12 @@
-package net.unethicalite.plugins.Mining
+package net.unethicalite.miner
 
 import net.runelite.client.config.*
-import net.unethicalite.plugins.Mining.util.Rock
+import net.unethicalite.miner.util.Rock
+import net.unethicalite.miner.util.Banks
+import net.unethicalite.miner.util.MineLocation
 
-@ConfigGroup("MiningConfig")
-interface MiningConfig : Config {
+@ConfigGroup("MinerConfig")
+interface MinerConfig : Config {
 
     companion object {
         @ConfigSection(
@@ -24,6 +26,15 @@ interface MiningConfig : Config {
             closedByDefault = true
         )
         const val rockType: String = "Rock Type"
+
+        @ConfigSection(
+            name = "Banking Settings",
+            description = "",
+            position = 15,
+            keyName = "Banking",
+            closedByDefault = true
+        )
+        const val Banking: String = "Banking Settings"
     }
 
 
@@ -78,28 +89,62 @@ interface MiningConfig : Config {
     }
 
     @ConfigItem(
-        keyName = "tree",
-        name = "Tree Type",
-        description = "Choose Tree to cut",
+        keyName = "Location",
+        name = "Mine Location",
+        description = "Choose Location to Mine",
         position = 11,
         section = rockType
     )
     @JvmDefault
+    fun mineLocation(): MineLocation {
+        return MineLocation.RIMMINGTON
+    }
+
+    @ConfigItem(
+        keyName = "tree",
+        name = "Rock Type",
+        description = "Choose Rock to Mine",
+        position = 12,
+        section = rockType
+    )
+    @JvmDefault
     fun rockType(): Rock {
-        return Rock.IRON
+        return Rock.RUNITE
     }
     @ConfigItem(
         keyName = "radius",
         name = "Radius",
         description = "Radius from start location",
-        position = 12,
+        position = 13,
         section = rockType
     )
     @JvmDefault
     fun radius(): Int {
-        return 2
+        return 20
+    }
+    @ConfigItem(
+        keyName = "Bank",
+        name = "Choose Bank",
+        description = "Select Which Bank to run to",
+        position = 14,
+        section = Banking
+    )
+    @JvmDefault
+    fun ChosenBank(): Banks {
+        return Banks.FALLY_EAST
     }
 
+    @ConfigItem(
+        keyName = "toggleBank",
+        name = "Toggle Banking",
+        description = "Toggle Banking",
+        position = 15,
+        section = Banking
+    )
+    @JvmDefault
+    fun toggleBank(): Boolean {
+        return false
+    }
     @ConfigItem(
         keyName = "startHelper",
         name = "Start / Stop",

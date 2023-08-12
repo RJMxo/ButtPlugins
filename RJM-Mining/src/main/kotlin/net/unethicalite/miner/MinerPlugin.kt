@@ -1,7 +1,8 @@
-package net.unethicalite.plugins.Mining
+package net.unethicalite.miner
 
 import com.google.inject.Provides
 import net.runelite.api.GameState
+import net.runelite.api.NPC
 import net.runelite.api.TileObject
 import net.runelite.api.coords.WorldPoint
 import net.runelite.api.events.ConfigButtonClicked
@@ -9,26 +10,26 @@ import net.runelite.client.config.ConfigManager
 import net.runelite.client.eventbus.Subscribe
 import net.runelite.client.plugins.PluginDescriptor
 import net.unethicalite.api.commons.Time
+import net.unethicalite.api.entities.NPCs
 import net.unethicalite.api.entities.Players
 import net.unethicalite.api.entities.TileObjects
+import net.unethicalite.api.items.Bank
 import net.unethicalite.api.items.Inventory
-import net.unethicalite.api.items.Items
-import net.unethicalite.api.magic.Magic
-import net.unethicalite.api.magic.Spell
-import net.unethicalite.api.magic.SpellBook
+import net.unethicalite.api.movement.Movement
+import net.unethicalite.api.movement.Reachable
 import net.unethicalite.api.plugins.LoopedPlugin
 import net.unethicalite.api.utils.MessageUtils
-import net.unethicalite.api.widgets.Widgets
 import net.unethicalite.client.Static
-import net.unethicalite.plugins.Mining.util.Rock
-import net.unethicalite.plugins.Mining.util.Calculation
-import net.unethicalite.plugins.Mining.util.Functions
-import net.unethicalite.plugins.Mining.util.Log
-import net.unethicalite.plugins.Mining.util.ReflectBreakHandler
+import net.unethicalite.miner.util.Calculation
+import net.unethicalite.miner.util.Functions
+import net.unethicalite.miner.util.Log
+import net.unethicalite.miner.util.ReflectBreakHandler
 import org.pf4j.Extension
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
+import net.runelite.api.*
+import net.unethicalite.api.items.DepositBox
 
 @Extension
 @PluginDescriptor(
@@ -36,10 +37,10 @@ import javax.inject.Inject
     description = "Automatic Miner",
     tags = ["mining"]
 )
-class MiningPlugin : LoopedPlugin() {
+class MinerPlugin : LoopedPlugin() {
 
     @Inject
-    lateinit var config: MiningConfig
+    lateinit var config: MinerConfig
 
     @Inject
     lateinit var functions: Functions
@@ -62,8 +63,8 @@ class MiningPlugin : LoopedPlugin() {
     companion object : Log()
 
     @Provides
-    fun provideConfig(configManager: ConfigManager): MiningConfig {
-        return configManager.getConfig(MiningConfig::class.java)
+    fun provideConfig(configManager: ConfigManager): MinerConfig {
+        return configManager.getConfig(MinerConfig::class.java)
     }
 
 
@@ -80,27 +81,55 @@ class MiningPlugin : LoopedPlugin() {
     }
 
     override fun loop(): Int {
+        val BankTile = WorldPoint(config.ChosenBank().X, config.ChosenBank().Y, config.ChosenBank().Z)
         if (!startPlugin || chinBreakHandler.isBreakActive(this)) return 100
 
         with(functions) {
-            when(getState()){
+            when (getState()) {
                 States.HANDLE_BREAK -> {
                     MessageUtils.addMessage("Attempting to break")
-                    chinBreakHandler.startBreak(this@MiningPlugin)
+                    chinBreakHandler.startBreak(this@MinerPlugin)
                 }
+
                 States.MINE_ROCK -> {
-                    val tree: TileObject? = TileObjects.getNearest { config.rockType().rockId.contains(it.id) && it.distanceTo(startLocation) < config.radius() }
+                    val tree: TileObject? =
+                        TileObjects.getNearest { config.rockType().rockId.contains(it.id) && it.distanceTo(startLocation) < config.radius() }
                     tree?.let {
                         it.interact("Mine")
-                        Time.sleepUntil({Players.getLocal().isAnimating}, 1350)
+                        Time.sleepUntil({ Players.getLocal().isAnimating }, 1350)
                     }
                 }
+
                 States.DROP_INVENTORY -> {
-                    for(Item in Inventory.getAll { it.id == config.rockType().item  || "Uncut" in it.name }){
+                    for (Item in Inventory.getAll { it.id == config.rockType().item || "Uncut" in it.name }) {
                         Item.interact("Drop")
                         Time.sleep(sleepDelay())
+                        States.BANK
                     }
                 }
+                States.WALKTOBANK -> {
+                    Movement.walkTo(BankTile)
+                    Time.sleepUntil({ (BankTile.distanceTo(Players.getLocal().getWorldLocation()) <= 2) }, 1350)
+                }
+
+                States.BANK -> {
+                    var banker: TileObject? = TileObjects.getNearest { it.hasAction("Deposit") }
+                    if (banker != null) {
+                        banker.interact("Deposit")
+                        Time.sleepUntil({ DepositBox.isOpen() }, 1500)
+                        DepositBox.depositInventory()
+                        Time.sleepUntil({ Inventory.isEmpty() }, 1500)
+                        DepositBox.close()
+                        }
+                    if (banker == null || !Reachable.isInteractable(banker)) {
+                        Movement.walkTo(config.ChosenBank().X, config.ChosenBank().Y, config.ChosenBank().Z)
+                    }
+                }
+
+                States.WALKHOME -> {
+                    Movement.walkTo(config.mineLocation().X, config.mineLocation().Y, config.mineLocation().Z)
+                }
+
             }
             return sleepDelay().toInt()
         }
@@ -114,7 +143,7 @@ class MiningPlugin : LoopedPlugin() {
 
     @Subscribe
     private fun onConfigButtonPressed(configButtonClicked: ConfigButtonClicked) {
-        if (!configButtonClicked.group.equals("MiningConfig", ignoreCase = true) || Static.getClient().gameState != GameState.LOGGED_IN || Players.getLocal() == null) return
+        if (!configButtonClicked.group.equals("MinerConfig", ignoreCase = true) || Static.getClient().gameState != GameState.LOGGED_IN || Players.getLocal() == null) return
         if (configButtonClicked.key.equals("startHelper", ignoreCase = true)) {
             startPlugin = !startPlugin
             startLocation = Players.getLocal().worldLocation

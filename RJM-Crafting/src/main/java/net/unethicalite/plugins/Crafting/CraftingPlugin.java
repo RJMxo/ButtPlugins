@@ -205,8 +205,8 @@ public class CraftingPlugin extends Plugin {
     }
 
     private MenuEntry usePipeOnGlass(){
-        Widget moltenGlass = getInventoryItem(ItemID.NEEDLE);
-        Widget pipe = getInventoryItem(ItemID.RED_DRAGON_LEATHER);
+        Widget moltenGlass = getInventoryItem(config.method().tool);
+        Widget pipe = getInventoryItem(config.method().material);
         if (pipe == null || moltenGlass == null) return null;
         setSelectedInventoryItem(pipe);
         return createMenuEntry(0, MenuAction.WIDGET_TARGET_ON_WIDGET, moltenGlass.getIndex(), 9764864, true);

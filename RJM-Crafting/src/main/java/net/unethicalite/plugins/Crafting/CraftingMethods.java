@@ -50,10 +50,10 @@ public enum CraftingMethods {
     Mithril_Bar(ItemID.MITHRIL_ORE, ItemID.COAL, ItemID.MITHRIL_BAR, 17694740),
     Adamant_Bar(ItemID.ADAMANTITE_ORE, ItemID.COAL, ItemID.ADAMANTITE_BAR, 17694741),
     Rune_Bar(ItemID.RUNITE_ORE, ItemID.COAL, ItemID.RUNITE_BAR, 17694742),
-    Green_Dhide_Body(ItemID.GREEN_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.GREEN_DHIDE_BODY, 17694742, 0),
-    Blue_Dhide_Body(ItemID.BLUE_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.BLUE_DHIDE_BODY, 17694742, 0),
+    Green_Dhide_Body(ItemID.GREEN_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.GREEN_DHIDE_BODY, 17694734, 0),
+    Blue_Dhide_Body(ItemID.BLUE_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.BLUE_DHIDE_BODY, 17694734, 0),
     Red_Dhide_Body(ItemID.RED_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.RED_DHIDE_BODY, 17694734, 0),
-    Black_Dhide_Body(ItemID.BLACK_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.BLACK_DHIDE_BODY, 17694742, 0),;
+    Black_Dhide_Body(ItemID.BLACK_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.BLACK_DHIDE_BODY, 17694734, 0),;
 
     public int material;
     public int material2 = -1; //always set this as the X quantity as material will just withdraw all.

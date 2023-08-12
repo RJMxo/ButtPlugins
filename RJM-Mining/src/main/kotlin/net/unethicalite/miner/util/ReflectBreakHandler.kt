@@ -1,4 +1,4 @@
-package net.unethicalite.plugins.Mining.util
+package net.unethicalite.miner.util
 
 import lombok.extern.slf4j.Slf4j
 import net.runelite.client.plugins.Plugin

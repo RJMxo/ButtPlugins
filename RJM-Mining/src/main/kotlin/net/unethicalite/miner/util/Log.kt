@@ -1,4 +1,4 @@
-package net.unethicalite.plugins.Mining.util
+package net.unethicalite.miner.util
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
