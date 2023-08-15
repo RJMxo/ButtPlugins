@@ -87,7 +87,6 @@ public class CraftingPlugin extends Plugin {
 
         if (widgetHandler()!=null)
         {
-            client.addChatMessage(ChatMessageType.BROADCAST,"","Widget time","");
             setMenuEntry(event,widgetHandler());
             return;
         }
@@ -111,10 +110,13 @@ public class CraftingPlugin extends Plugin {
                         return;
                     }
                     setMenuEntry(event, depositProduct());
+                    if (getInventoryItem(config.method().spare) != null){
+                        setMenuEntry(event, depositSpare());
+                    }
                     return;
                 case 2:
-                    client.addChatMessage(ChatMessageType.BROADCAST,"","Withdrawing X Products","");
                     if (config.method().material2 != -1) {
+                        client.addChatMessage(ChatMessageType.BROADCAST,"","Withdrawing X Products","");
                         setMenuEntry(event, withdrawX());
                         bankingState = 3;
                         return;
@@ -186,7 +188,10 @@ public class CraftingPlugin extends Plugin {
         Widget item = getInventoryItem(config.method().product);
         return createMenuEntry(8, MenuAction.CC_OP_LOW_PRIORITY, item.getIndex(), WidgetInfo.BANK_INVENTORY_ITEMS_CONTAINER.getId(), false);
     }
-
+    private MenuEntry depositSpare() {
+        Widget item = getInventoryItem(config.method().spare);
+        return createMenuEntry(8, MenuAction.CC_OP_LOW_PRIORITY, item.getIndex(), WidgetInfo.BANK_INVENTORY_ITEMS_CONTAINER.getId(), false);
+    }
     private MenuEntry depositAll() {
         return createMenuEntry(1, MenuAction.CC_OP, -1, WidgetInfo.BANK_DEPOSIT_INVENTORY.getId(), false);
     }
