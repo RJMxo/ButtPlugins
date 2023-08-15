@@ -29,6 +29,8 @@ include("RJM-Crafting")
 include("RJM-Alcher")
 include("RJM-Tanner")
 include("RJM-Mining")
+include("RJM-Magic")
+//include("iutils")
 
 //include("example-kotlin")
 

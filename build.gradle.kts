@@ -50,6 +50,13 @@ allprojects {
         compileOnly(Libraries.javax)
         compileOnly(Libraries.lombok)
         compileOnly(Libraries.pf4j)
+        compileOnly(Libraries.apacheCommonsText)
+        compileOnly(Libraries.gson)
+        compileOnly(Libraries.guice)
+        compileOnly(Libraries.lombok)
+        compileOnly(Libraries.okhttp3)
+        compileOnly(Libraries.pf4j)
+        compileOnly(Libraries.rxjava)
     }
 
     configure<JavaPluginConvention> {

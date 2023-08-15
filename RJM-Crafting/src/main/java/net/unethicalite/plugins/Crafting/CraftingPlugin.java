@@ -10,7 +10,7 @@ import net.runelite.api.events.GameTick;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.queries.BankItemQuery;
 import net.runelite.api.queries.GameObjectQuery;
-import net.runelite.api.queries.NPCQuery;
+import net  .runelite.api.queries.NPCQuery;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.widgets.WidgetItem;
@@ -144,6 +144,9 @@ public class CraftingPlugin extends Plugin {
             }
         }
         if (!bankOpen() && getInventoryItem(config.method().material) == null) {
+            setMenuEntry(event, bank());
+        }
+        if (!bankOpen() && getInventoryItem(config.method().material) == null ) {
             setMenuEntry(event, bank());
         }
     }

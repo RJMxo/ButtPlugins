@@ -19,9 +19,22 @@
   "id": "rjmcrafting-plugin",
   "releases": [{
     "date": "2023-08-12",
-    "sha512sum": "18730312CD99978957B6645224868C39128EF82F459F69054B902343825135DFB7CC0A63732007CC4ACDF05AEC939E41D560D70C83AED90A0028F63E322BC548",
+    "sha512sum": "0E31BFAD72A16E7F1DE2C1EDECB70327B099A138581DC8B4149D825087AC6483A8BD268338E8B5B5FA64291D9E88D5E1CB16F66B248CC0E762BF0BAA6BBFB1EA",
     "version": "0.0.2",
     "url": "https://github.com/RJMxo/blob/master/release/Crafting-0.0.2.jar?raw=true",
+    "requires": "^1.0.0"
+  }]
+}, {
+  "projectUrl": "",
+  "provider": "Lochi Likes Kids",
+  "name": "RJM-Magic",
+  "description": "Blows glass items at clan bank or north fossil island",
+  "id": "rjmmagic-plugin",
+  "releases": [{
+    "date": "2023-08-13",
+    "sha512sum": "E00AE520BFE2CE106F096002737D251BE00C088D61E94A6018CD557055FE8DFF96C989EA086EFF7358E54939250336FC85BFEDAC33471281237C482C4F9AE1AB",
+    "version": "2.1.0",
+    "url": "https://github.com/RJMxo/blob/master/release/RJM-Magic-2.1.0.jar?raw=true",
     "requires": "^1.0.0"
   }]
 }, {
@@ -32,7 +45,7 @@
   "id": "rjmminer-plugin",
   "releases": [{
     "date": "2023-08-12",
-    "sha512sum": "1F75C53A9341CEEF1DA37A24423D119A5CCD24EDE16E83FCE7EC9EF270A1E0FA56447510819EB3FA83AA7A3B67B6EF8E03876EBBB49679E9D4C9160FC39855F1",
+    "sha512sum": "B7C9E8541CBC275E855BD429BF2CBD59A763CE7DE06B7B63DF8B12BD82B6E9E735A00F5D39814A297512934AF5F13A5E4F994E23F4575FAAA8440AEA59C90584",
     "version": "0.0.3",
     "url": "https://github.com/RJMxo/blob/master/release/RJM-Mining-0.0.3.jar?raw=true",
     "requires": "^1.0.0"

@@ -30,6 +30,10 @@ import java.time.Instant
 import javax.inject.Inject
 import net.runelite.api.*
 import net.unethicalite.api.items.DepositBox
+import net.unethicalite.api.packets.WidgetPackets
+import net.runelite.api.MenuAction
+import net.runelite.api.widgets.Widget
+import net.runelite.api.widgets.WidgetInfo
 
 @Extension
 @PluginDescriptor(
@@ -117,7 +121,7 @@ class MinerPlugin : LoopedPlugin() {
                     if (banker != null) {
                         banker.interact("Deposit")
                         Time.sleepUntil({ DepositBox.isOpen() }, 1500)
-                        DepositBox.depositInventory()
+                        Static.getClient().interact(1, 57, 1, 12582914)
                         Time.sleepUntil({ Inventory.isEmpty() }, 1500)
                         DepositBox.close()
                         }
@@ -127,7 +131,10 @@ class MinerPlugin : LoopedPlugin() {
                 }
 
                 States.WALKHOME -> {
-                    Movement.walkTo(config.mineLocation().X, config.mineLocation().Y, config.mineLocation().Z)
+                    val StartSpot = WorldPoint(config.mineLocation().X, config.mineLocation().Y, config.mineLocation().Z)
+                    Movement.walkTo(StartSpot)
+                    Time.sleepUntil({ (StartSpot.distanceTo(Players.getLocal().getWorldLocation()) <= 2) }, 1350)
+
                 }
 
             }

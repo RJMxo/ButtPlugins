@@ -10,8 +10,6 @@ import net.runelite.api.ItemID;
 public enum CraftingMethods {
     CannonBalls(ItemID.STEEL_BAR, ItemID.CANNON_BALL, 17694734),
     Molten_Glass(ItemID.BUCKET_OF_SAND, ItemID.SODA_ASH, ItemID.MOLTEN_GLASS, 17694734),
-
-    //maybe the opcode for this should be a final variable + x in case of any future changes to the opcode.
     Gold_Ring(ItemID.GOLD_BAR, ItemID.GOLD_RING, 29229064),
     Sapphire_Ring(ItemID.GOLD_BAR, ItemID.SAPPHIRE, ItemID.SAPPHIRE_RING, 29229065),
     Emerald_Ring(ItemID.GOLD_BAR, ItemID.EMERALD, ItemID.EMERALD_RING, 29229066),
@@ -24,6 +22,7 @@ public enum CraftingMethods {
     Emerald_Necklace(ItemID.GOLD_BAR, ItemID.EMERALD, ItemID.EMERALD_NECKLACE, 29229081),
     Ruby_Necklace(ItemID.GOLD_BAR, ItemID.RUBY, ItemID.RUBY_NECKLACE, 29229082),
     Diamond_Necklace(ItemID.GOLD_BAR, ItemID.DIAMOND, ItemID.DIAMOND_NECKLACE, 29229083),
+    Opal_Necklace(ItemID.SILVER_BAR, ItemID.OPAL, ItemID.OPAL_NECKLACE, 393227),
     Dragonstone_Necklace(ItemID.GOLD_BAR, ItemID.DRAGONSTONE, ItemID.DRAGON_NECKLACE, 29229084),
 
     Gold_Amulet(ItemID.GOLD_BAR, ItemID.GOLD_AMULET_U, 29229093),
@@ -50,6 +49,7 @@ public enum CraftingMethods {
     Mithril_Bar(ItemID.MITHRIL_ORE, ItemID.COAL, ItemID.MITHRIL_BAR, 17694740),
     Adamant_Bar(ItemID.ADAMANTITE_ORE, ItemID.COAL, ItemID.ADAMANTITE_BAR, 17694741),
     Rune_Bar(ItemID.RUNITE_ORE, ItemID.COAL, ItemID.RUNITE_BAR, 17694742),
+    Cut_Opal(ItemID.UNCUT_OPAL, ItemID.CHISEL, ItemID.OPAL, 17694734, 0),
     Green_Dhide_Body(ItemID.GREEN_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.GREEN_DHIDE_BODY, 17694734, 0),
     Blue_Dhide_Body(ItemID.BLUE_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.BLUE_DHIDE_BODY, 17694734, 0),
     Red_Dhide_Body(ItemID.RED_DRAGON_LEATHER, ItemID.NEEDLE, ItemID.RED_DHIDE_BODY, 17694734, 0),

@@ -23,5 +23,5 @@ enum class Banks(val id: Int, var X: Int, var Y: Int, var Z: Int) {
 }
 
 enum class MineLocation(var X: Int, var Y: Int, var Z: Int) {
-    RIMMINGTON(2977,3240,0);
+    RIMMINGTON(2969,3239,0);
 }

@@ -1,6 +1,7 @@
 package net.unethicalite.miner.util
 
 import net.runelite.api.Client
+import net.runelite.api.ItemID
 import net.runelite.api.TileObject
 import net.runelite.api.coords.WorldPoint
 import net.unethicalite.api.commons.Time
@@ -50,13 +51,13 @@ class Functions {
 
         if (!Players.getLocal().isAnimating) {
             val StartSpot = WorldPoint(config.mineLocation().X, config.mineLocation().Y, config.mineLocation().Z)
-            if (StartSpot.distanceTo(Players.getLocal().getWorldLocation()) <= 50) {
+            if (StartSpot.distanceTo(Players.getLocal().getWorldLocation()) <= 15) {
                 val rock: TileObject? =
                     TileObjects.getNearest { config.rockType().rockId.contains(it.id) && it.distanceTo(startLocation) < config.radius() }
                         ?: return States.UNKNOWN
                 return States.MINE_ROCK
             }
-            if (Inventory.isEmpty() && !DepositBox.isOpen() && StartSpot.distanceTo(Players.getLocal().getWorldLocation()) >= 50) {
+            if (!Inventory.contains(ItemID.IRON_ORE) && !DepositBox.isOpen() && StartSpot.distanceTo(Players.getLocal().getWorldLocation()) >= 5) {
                 return States.WALKHOME
             }
 
