@@ -17,13 +17,22 @@
   "name": "RJM-Crafting",
   "description": "Bunch of crafting options",
   "id": "rjmcrafting-plugin",
-  "releases": [{
-    "date": "2023-08-12",
-    "sha512sum": "2719C349594062AEA737D4B8802EAF78EAB2A1988423C81F0D6DD1E992558C5CFF9FB9915E21B38418B0AA816D962DF4BF611C50D631424BE6826FC0188459E9",
-    "version": "0.0.2",
-    "url": "https://github.com/RJMxo/blob/master/release/Crafting-0.0.2.jar?raw=true",
-    "requires": "^1.0.0"
-  }]
+  "releases": [
+    {
+      "date": "2023-08-12",
+      "sha512sum": "2719C349594062AEA737D4B8802EAF78EAB2A1988423C81F0D6DD1E992558C5CFF9FB9915E21B38418B0AA816D962DF4BF611C50D631424BE6826FC0188459E9",
+      "version": "0.0.2",
+      "url": "https://github.com/RJMxo/blob/master/release/Crafting-0.0.2.jar?raw=true",
+      "requires": "^1.0.0"
+    },
+    {
+      "date": "2023-08-15",
+      "sha512sum": "6EA62E95A3AF307990F56A4F7D6924346C361292CF1B99EAEFDB09C941280A697FBE68E6E63336C988346BA3EE303D3260104A25E89A612B50475ECF32F98780",
+      "version": "0.0.3",
+      "url": "https://github.com/RJMxo/blob/master/release/RJM-Crafting-0.0.3.jar?raw=true",
+      "requires": "^1.0.0"
+    }
+  ]
 }, {
   "projectUrl": "",
   "provider": "Lochi Likes Kids",

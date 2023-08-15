@@ -1,4 +1,4 @@
-version = "0.0.2"
+version = "0.0.3"
 
 project.extra["PluginName"] = "RJM-Crafting"
 project.extra["PluginDescription"] = "Bunch of crafting options"
